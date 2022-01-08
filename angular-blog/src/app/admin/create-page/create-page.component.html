@@ -1,23 +1,35 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
     <h1>Making a new Post</h1>
 
-    <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+    <div 
+    class="form-control" 
+    [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
         <label for="title">Title:</label>
         <input id="title" type="text" formControlName="title">
-        <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
-            <small *ngIf="form.get('title').errors?.['required']">Enter the Title field</small>
+        <div 
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+      class="validation">
+            <small 
+            *ngIf="form.get('title').errors?.['title']">
+            Enter the Title field</small>
         </div>
     </div>
 
     <div class="form-control">
         <label> Text:</label>
+        <textarea id="" cols="30" rows="10" formControlName="text">
+            <!-- quill editor is not showing here -->
+        </textarea>
+        <quill-editor formControlName="text" ></quill-editor>
     </div>
 
-    <div class="form-control" [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
+    <div 
+    class="form-control" 
+    [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
         <label for="author">Author name:</label>
-        <input id="author" type="text" formControlName="title">
+        <input id="author" type="text" formControlName="author">
         <div *ngIf="form.get('titauthorle').touched && form.get('author').invalid" class="validation">
-            <small *ngIf="form.get('author').errors?.['required']">Enter the Author field</small>
+            <small *ngIf="form.get('author').errors?.['author']">Enter the Author field</small>
         </div>
     </div>
 

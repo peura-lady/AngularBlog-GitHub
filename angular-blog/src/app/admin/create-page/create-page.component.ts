@@ -6,25 +6,28 @@ import { Post } from 'src/app/shared/interfaces';
   selector: 'app-create-page',
   templateUrl: './create-page.component.html',
   styleUrls: ['./create-page.component.scss']
+  
 })
 export class CreatePageComponent implements OnInit {
 
   form!: FormGroup
 
-  constructor() { }
+  constructor() {
+    
+   }
 
-  ngOnInit(): void {
-
+  ngOnInit() {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
-      author: new FormControl(null, Validators.required),
+      author: new FormControl(null, Validators.required)
     })
   }
+  
 
   submit() {
-    if(this.form.invalid){
-      return 
+    if (this.form.invalid) {
+      return
     }
 
     const post: Post = {
@@ -33,6 +36,8 @@ export class CreatePageComponent implements OnInit {
       text: this.form.value.text,
       date: new Date()
     }
+
+    console.log(post)
   }
 
 }
