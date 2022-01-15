@@ -1,6 +1,9 @@
 # <img src="https://64.media.tumblr.com/96e32c38c2131e9be7b5399ea94285b7/tumblr_mj2gl1Lhjc1qi3yn4o1_400.gif" width="50"> AngularBlog-GitHub
-
-A complex structured Blog sample with posts, in addition to an independant Admin Panel. This was made with Angular 13, Angular-Cli and TypeScript. 
+ 
+First time got my hands on publishing a Web Application, which was made as a try-out with Angular13 and Typescript 💻<br />
+The design is really simple, but really, it is about what is hidden inside. 😉<br />
+The complex structure shows that Blog App sample works for non-users and it has a full functionality of creating posts and modifying them through its own fully functional Admin Panel.<br />
+It will have more work in it, but I am proud to share some of this experience already!
 
 # Screenshots
 
