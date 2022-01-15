@@ -5,7 +5,7 @@
         <div 
         class="form-control" 
         [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
-            <label for="title">Title:</label>
+            <label for="title">Enter new Title:</label>
             <input id="title" type="text" formControlName="title">
             <div 
             *ngIf="form.get('title').touched && form.get('title').invalid"
