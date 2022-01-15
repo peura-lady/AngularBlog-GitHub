@@ -17,6 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
             req = req.clone({
                 setParams: {
                     auth: this.auth.token
+                    // auth: this.auth.token as string
                 }
             })
         }
@@ -27,14 +28,14 @@ export class AuthInterceptor implements HttpInterceptor {
             }),
             catchError((error: HttpErrorResponse) => {
                 console.log('[Interceptor Error]: ', error)
-                if (error.status === 401) {
-                    this.auth.logout()
-                    this.router.navigate(['/admin', 'login'], {
-                        queryParams: {
-                            authFailed: true
-                        }
-                    })
-                }
+                // if (error.status === 401) {
+                //     this.auth.logout()
+                //     this.router.navigate(['/admin', 'login'], {
+                //         queryParams: {
+                //             authFailed: true
+                //         }
+                //     })
+                // }
                 // return throwError(() => new Error())
                 return throwError(error)
             })

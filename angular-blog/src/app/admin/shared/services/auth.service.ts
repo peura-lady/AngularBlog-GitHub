@@ -28,7 +28,8 @@ export class AuthService {
     user.returnSecureToken = true
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
       .pipe(
-        tap(resp => this.setToken),
+        tap(() => this.setToken),
+        // tap(resp => this.setToken),
         // tap(this.setToken),
         catchError(this.handleError.bind(this))
       )
@@ -46,8 +47,8 @@ export class AuthService {
     const { message } = error.error.error
 
     switch (message) {
-      case 'USER_DISABLED':
-      // case 'INVALID_EMAIL':
+      // case 'USER_DISABLED':
+      case 'INVALID_EMAIL':
       this.error$.next('Wrong email')
         break
       case 'INVALID_PASSWORD':
@@ -58,8 +59,8 @@ export class AuthService {
         break
     }
 
-    // return throwError(error)
-    return throwError(() => new Error())
+    return throwError(error)
+    // return throwError(() => new Error())
   }
 
   private setToken(response: FbAuthResponse | null) {
