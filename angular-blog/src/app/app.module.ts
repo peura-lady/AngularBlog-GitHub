@@ -9,6 +9,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { QuillModule } from 'ngx-quill';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // entire interceptor can be registered also in providers
 const INTERCEPTOR_PROVIDER: Provider = {
@@ -28,7 +30,10 @@ const INTERCEPTOR_PROVIDER: Provider = {
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    QuillModule.forRoot(),
+      FormsModule,
+      ReactiveFormsModule
   ],
   // exports: [
   //   HttpClientModule,

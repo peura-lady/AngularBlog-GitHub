@@ -1,54 +1,20 @@
-<div class="post">
-    <div class="header">
-        <h1>First news of 2022 about Angular</h1>
-        <button routerLink="/" class="btn btn-dark btn-link">Return to main page</button>
-    </div>
-    <div class="info">
-        <strong>Anna</strong>
-        <small>15.01.2022</small>
-    </div>
-    <div>
-        <br />
-        <p>
-
-            <img class="post-image" src="https://merehead.com/blog/wp-content/uploads/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA101.jpg" alt="">
-
-            Angular is the most valuable framework in the technology arena because of its simplicity. At the same time,
-            it releases updates in line with industry trends.<br />
-
-            The first benefit is two-way data binding. It allows developers to create templates faster. Any changes made
-            to a view or view layer are automatically and instantly reflected in the model. Simply put, Angular is built
-            on top of the MVC (Model View Controller) architecture, which allows developers to easily make changes. Any
-            changes made to the "Model" instantly change the "View".<br />
-
-            Another advantage is DOM manipulation, a programming interface for HTML and XML that helps developers define
-            the logical structure of documents and manipulate the document. Developers gain ease of manipulation of the
-            DOM (Document Object Model) through a two-way data binding approach. And this is not possible with other
-            JavaScript frameworks. DOM manipulation helps developers save time as they just need to translate and update
-            DOM elements.<br />
-
-            The increased server performance reduces the load on the server's CPUs, and the reduced traffic helps the
-            server perform well by caching and supporting other processes. Simply put, Angular only serves static files
-            and responds directly to API calls, which reduces the load, be it traffic or server CPU. Server performance
-            is automatically improved when it reduces CPU usage or only serves static files. It also minimizes DOM
-            manipulations that help improve performance.<br />
-
-            Prototyping helps developers quickly initialize such features, get feedback, and make changes. A prototype
-            not only helps to quickly create an application. This is also useful for small projects because it virtually
-            stores pointers to each function.<br />
-
-            Since the ultimate goal of an application is to provide the best experience for the end user, Angular JS
-            allows developers to build applications with high-speed response for fast loading, smooth navigation, and
-            more. What's more, a responsive web becomes efficient in terms of user experience, service, and more.<br />
-
-            Developers do not need to work so hard to make web pages responsive as it automatically detects
-            responsiveness based on the system being used.<br />
-
-            As a conclusion, it can be noted that the study of statistical data on the considered frameworks allows you
-            to make a choice in favor of React.js. It is it that can be recommended to learn by 2022. But in any case,
-            each environment has its own characteristics, advantages and disadvantages, which shifts the responsibility
-            for the choice onto the shoulders of a particular developer.<br />
-
-        </p>
+<div *ngIf ="(post$) | async as post; else loading" >
+    <div class="post">
+        <div class="header">
+            <h1>{{ post.title }}</h1>
+            <button routerLink="/" class="btn btn-dark btn-link">Return to main page</button>
+        </div>
+        <div class="info">
+            <strong>{{post.author}}</strong>
+            <small>{{post.date | date: 'medium'}}</small>
+        </div>
+        <div>
+            <!-- <quill-view-html [content]='post.text'></quill-view-html> -->
+            <quill-view-html  [(ngModel)]="post.text"></quill-view-html>
+        </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <p class="text-center"> Loading...</p>
+</ng-template>
